@@ -1,7 +1,6 @@
 package simplepaste
 
 import (
-	_ "log"
 	"net/url"
 	"net/http"
 	"bytes"
@@ -64,7 +63,7 @@ func (api * API) SendPaste(paste Paste) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return strings.Replace(buf.String(), "http://pastebin.com/raw.php?i=", "", 1), nil
+	return strings.Replace(buf.String(), "http://pastebin.com/", "", 1), nil
 }
 
 //Returns raw paste text
@@ -103,3 +102,4 @@ func (api * API) GetUserKey(username string, password string)(string, error) {
    	_, err = buf.ReadFrom(response.Body)
     return buf.String(), err
 }
+
