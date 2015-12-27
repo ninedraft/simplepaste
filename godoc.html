@@ -1,0 +1,273 @@
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = ;
+	document.CALLGRAPH = ;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "simplepaste"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+			</div>
+		</div>
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+			
+				
+				<dd><a href="#API">type API</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewAPI">func NewAPI(api_key string) *API</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#API.GetPasteTextById">func (api *API) GetPasteTextById(paste_id string) (string, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#API.GetUserKey">func (api *API) GetUserKey(username string, password string) (string, error)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#API.SendPaste">func (api *API) SendPaste(paste Paste) (string, error)</a></dd>
+				
+			
+				
+				<dd><a href="#Paste">type Paste</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewPaste">func NewPaste(name string, text string) Paste</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/simplepaste/defines.go">defines.go</a>
+			
+				<a href="/src/simplepaste/simplepaste.go">simplepaste.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<pre>const (
+    <span id="Never">Never</span>       = &#34;N&#34;
+    <span id="TenMinutues">TenMinutues</span> = &#34;10M&#34;
+    <span id="Hour">Hour</span>        = &#34;1H&#34;
+    <span id="Day">Day</span>         = &#34;1D&#34;
+    <span id="Week">Week</span>        = &#34;1W&#34;
+    <span id="TwoWeeks">TwoWeeks</span>    = &#34;2W&#34;
+    <span id="Month">Month</span>       = &#34;1M&#34;
+
+    <span id="Public">Public</span>   = &#34;0&#34;
+    <span id="Unlisted">Unlisted</span> = &#34;1&#34;
+    <span class="comment">//Only allowed in combination with api_user_key, as you have to be logged into your account to access the paste</span>
+    <span id="Private">Private</span> = &#34;2&#34;
+)</pre>
+				
+			
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<pre>var (
+    <span id="PastePostingError">PastePostingError</span> = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;Error while posting: pastebin.com is not available&#34;)
+    <span id="PasteGetError">PasteGetError</span>     = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;Error while getting: pastebin.com is not available&#34;)
+    <span id="PrivacyModError">PrivacyModError</span>   = <a href="/pkg/errors/">errors</a>.<a href="/pkg/errors/#New">New</a>(&#34;You can&#39;t send private paste without user_key!&#34;)
+)</pre>
+				
+			
+		
+		
+		
+			
+			
+			<h2 id="API">type <a href="/src/target/simplepaste.go?s=417:452#L19">API</a></h2>
+			<pre>type API struct {
+    APIKey <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewAPI">func <a href="/src/target/simplepaste.go?s=454:486#L23">NewAPI</a></h3>
+				<pre>func NewAPI(api_key <a href="/pkg/builtin/#string">string</a>) *<a href="#API">API</a></pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="API.GetPasteTextById">func (*API) <a href="/src/target/simplepaste.go?s=1418:1484#L59">GetPasteTextById</a></h3>
+				<pre>func (api *<a href="#API">API</a>) GetPasteTextById(paste_id <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Returns raw paste text
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="API.GetUserKey">func (*API) <a href="/src/target/simplepaste.go?s=1815:1891#L76">GetUserKey</a></h3>
+				<pre>func (api *<a href="#API">API</a>) GetUserKey(username <a href="/pkg/builtin/#string">string</a>, password <a href="/pkg/builtin/#string">string</a>) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="API.SendPaste">func (*API) <a href="/src/target/simplepaste.go?s=585:640#L30">SendPaste</a></h3>
+				<pre>func (api *<a href="#API">API</a>) SendPaste(paste <a href="#Paste">Paste</a>) (<a href="/pkg/builtin/#string">string</a>, <a href="/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Returns paste link string and nil if everything is ok
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Paste">type <a href="/src/target/simplepaste.go?s=84:278#L1">Paste</a></h2>
+			<pre>type Paste struct {
+    Text       <a href="/pkg/builtin/#string">string</a>
+    Name       <a href="/pkg/builtin/#string">string</a>
+    Privacy    <a href="/pkg/builtin/#string">string</a>
+    ExpireDate <a href="/pkg/builtin/#string">string</a>
+    <span class="comment">//You have to get it by .GetUserKey method, if you want to create private paste</span>
+    UserKey <a href="/pkg/builtin/#string">string</a>
+}</pre>
+			
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewPaste">func <a href="/src/target/simplepaste.go?s=280:325#L10">NewPaste</a></h3>
+				<pre>func NewPaste(name <a href="/pkg/builtin/#string">string</a>, text <a href="/pkg/builtin/#string">string</a>) <a href="#Paste">Paste</a></pre>
+				
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+

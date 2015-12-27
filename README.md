@@ -1,4 +1,4 @@
-# Golang bindings for the [Pastebin.com](pastebin.com) API
+# Golang bindings for the [Pastebin.com](https://pastebin.com) API
 
 Not all methods were implemented, but they are coming soon!
 
