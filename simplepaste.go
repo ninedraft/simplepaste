@@ -90,8 +90,6 @@ func (api * API) GetUserKey(username string, password string)(string, error) {
 	values.Set("api_user_name", username)
 	values.Set("api_user_password", password)
     req, err := http.NewRequest("POST", "http://pastebin.com/api/api_login.php", bytes.NewBufferString(values.Encode()))
-//    req.Header.Set("X-Custom-Header", "myvalue")
-//    req.Header.Set("Content-Type", "application/json")
     client := &http.Client{}
     response, err := client.Do(req)
     if err != nil {
