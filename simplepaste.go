@@ -4,7 +4,6 @@ import (
 	"net/url"
 	"net/http"
 	"bytes"
-	"strings"
 )
 
 //look defines.go
@@ -37,7 +36,7 @@ func NewAPI(api_key string) *API {
 	}
 }
 
-//Returns paste id string and nil if everything is ok
+//Returns paste link string and nil if everything is ok
 func (api * API) SendPaste(paste Paste) (string, error) {
 	if paste.UserKey == "" && paste.Privacy == "2" {
 		return "", PrivacyModError
@@ -63,7 +62,7 @@ func (api * API) SendPaste(paste Paste) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return strings.Replace(buf.String(), "http://pastebin.com/", "", 1), nil
+	return buf.String(), nil
 }
 
 //Returns raw paste text
