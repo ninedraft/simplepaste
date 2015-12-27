@@ -1,6 +1,6 @@
 # Golang bindings for the [Pastebin.com](pastebin.com) API
 
-Not all methods were implemented. but they are coming soon!
+Not all methods were implemented, but they are coming soon!
 
 All methods are fairly self explanatory, and reading the godoc page should explain everything. If something isn't clear, open an issue or submit a pull request.
 
