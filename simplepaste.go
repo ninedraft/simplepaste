@@ -49,7 +49,7 @@ func (api * API) SendPaste(paste Paste) (string, error) {
 	values.Set("api_paste_name", paste.Name)
 	values.Set("api_paste_private", paste.Privacy)
 	values.Set("api_paste_expire_date", paste.ExpireDate)
-	response, err := http.PostForm("http://pastebin.com/api/api_post.php", values)
+	response, err := http.PostForm("https://pastebin.com/api/api_post.php", values)
 	defer response.Body.Close()
 	if err != nil {
 		return "", err
@@ -67,7 +67,7 @@ func (api * API) SendPaste(paste Paste) (string, error) {
 
 //Returns raw paste text
 func (api * API) GetPasteTextById(paste_id string) (string, error) {
-	response, err := http.Get("http://pastebin.com/raw.php?i=" + paste_id)
+	response, err := http.Get("https://pastebin.com/raw.php?i=" + paste_id)
 	defer response.Body.Close()
 	if err != nil {
 		return "", err
@@ -88,7 +88,7 @@ func (api * API) GetUserKey(username string, password string)(string, error) {
 	values.Set("api_dev_key", api.APIKey)
 	values.Set("api_user_name", username)
 	values.Set("api_user_password", password)
-    req, err := http.NewRequest("POST", "http://pastebin.com/api/api_login.php", bytes.NewBufferString(values.Encode()))
+    req, err := http.NewRequest("POST", "https://pastebin.com/api/api_login.php", bytes.NewBufferString(values.Encode()))
     client := &http.Client{}
     response, err := client.Do(req)
     if err != nil {
